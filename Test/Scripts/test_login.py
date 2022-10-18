@@ -22,6 +22,7 @@ def test_correct_login():
         sitio = driver.current_url
         url = "http://certificacion.qaandain.oneapp.cl/admin/admin/usuarios"
         assert sitio == url, "No fue posible acceder al sitio"
+        driver.save_screenshot("/Users/marcolazo/Documents/Andain/PythonEnv/admin/admin-env/Evidencia/correct_login.png")
         print("Test 1: Credenciales correctas")
         print("Prueba Ok")
     except AssertionError as msg:
@@ -37,6 +38,7 @@ def test_fake_login():
     driver.maximize_window()
     loginPage = LoginPage(driver)
     loginPage.accesoLogin("fake", "fake")
+    driver.save_screenshot("/Users/marcolazo/Documents/Andain/PythonEnv/admin/admin-env/Evidencia/fake_login.png")
     time.sleep(5)
     try:
         modal = driver.find_element(By.XPATH, LocatorLogin.MODAL)
