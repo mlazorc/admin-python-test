@@ -10,7 +10,7 @@ from Pages.TestBase.Funciones import Funciones
 
 def test_correct_login():
     global driver
-    navegador = Service("/Users/marcolazo/Documents/Andain/PythonEnv/admin/admin-env/utils/chromedriver")
+    navegador = Service("../../utils/chromedriver")
     driver = webdriver.Chrome(service=navegador)
     f = Funciones(driver)
     f.Navegar("http://certificacion.qaandain.oneapp.cl/admin", 2)
@@ -31,7 +31,7 @@ def test_correct_login():
 
 def test_fake_login():
     global driver, modal
-    navegador = Service("/Users/marcolazo/Documents/Andain/PythonEnv/admin/admin-env/utils/chromedriver")
+    navegador = Service("../../utils/chromedriver")
     driver = webdriver.Chrome(service=navegador)
     f = Funciones(driver)
     f.Navegar("http://certificacion.qaandain.oneapp.cl/admin", 2)
