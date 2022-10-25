@@ -15,30 +15,32 @@ def test_correct_login():
     f = Funciones(driver)
     f.Navegar("http://certificacion.qaandain.oneapp.cl/admin", 2)
     driver.maximize_window()
-    loginPage = LoginPage(driver)
-    loginPage.accesoLogin("admin", "andain5546")
+    login = LoginPage(driver)
+    login.accesoLogin("admin", "andain5546")
     time.sleep(5)
     try:
         sitio = driver.current_url
         url = "http://certificacion.qaandain.oneapp.cl/admin/admin/usuarios"
         assert sitio == url, "No fue posible acceder al sitio"
-        driver.save_screenshot("/Users/marcolazo/Documents/Andain/PythonEnv/admin/admin-env/Evidencia/correct_login.png")
+        driver.save_screenshot("../../admin-pyhton-test/Evidencia/correct_login.png")
         print("Test 1: Credenciales correctas")
         print("Prueba Ok")
     except AssertionError as msg:
         print(msg)
     driver.quit()
 
+
 def test_fake_login():
     global driver, modal
     navegador = Service("../../utils/chromedriver")
     driver = webdriver.Chrome(service=navegador)
     f = Funciones(driver)
-    f.Navegar("http://certificacion.qaandain.oneapp.cl/admin", 2)
+    f.Navegar("http://certificacion.qaandain.oneapp.cl/admin/admin/usuarios", 2)
     driver.maximize_window()
     loginPage = LoginPage(driver)
     loginPage.accesoLogin("fake", "fake")
-    driver.save_screenshot("/Users/marcolazo/Documents/Andain/PythonEnv/admin/admin-env/Evidencia/fake_login.png")
+    time.sleep(2)
+    driver.save_screenshot("/Users/sebastiandelvillar/Documents/Testing/admin/admin-python-test/Evidencia/fake_login.png")
     time.sleep(5)
     try:
         modal = driver.find_element(By.XPATH, LocatorLogin.MODAL)
