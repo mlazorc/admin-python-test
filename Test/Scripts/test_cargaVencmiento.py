@@ -37,6 +37,6 @@ def test_carga_masiva_vencimientos():
     loginPage.accesoLogin("admin", "andain5546")
     carga = CargarVencimientosPage(driver)
     carga.accesoVista(2)
-    carga.cargaVencimientos("/Users/sebastiandelvillar/Downloads/test_carga.csv", "Oct", "2022", 5)
+    carga.cargaVencimientos("/Users/sebastiandelvillar/Downloads/test_carga_3.csv", "Octubre", "2022", .5)
     time.sleep(5)
     driver.quit()

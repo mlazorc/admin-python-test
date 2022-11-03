@@ -1,4 +1,5 @@
 import time
+import pytest
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
@@ -8,7 +9,17 @@ from Pages.PageObjects.LoginPage import LoginPage
 from Pages.TestBase.Funciones import Funciones
 
 
-def test_correct_login():
+def get_User():
+    return [
+        ("admin", "andain5546"),
+        ("test", "test"),
+        ("usuario", "usuario"),
+        ("prueba", "prueba")
+    ]
+
+
+@pytest.mark.parametrize("user, clave", get_User())
+def test_correct_login(user, clave):
     global driver
     navegador = Service("../../utils/chromedriver")
     driver = webdriver.Chrome(service=navegador)
@@ -16,7 +27,7 @@ def test_correct_login():
     f.Navegar("http://certificacion.qaandain.oneapp.cl/admin", 2)
     driver.maximize_window()
     login = LoginPage(driver)
-    login.accesoLogin("admin", "andain5546")
+    login.accesoLogin(user, clave)
     time.sleep(5)
     try:
         sitio = driver.current_url
@@ -40,7 +51,8 @@ def test_fake_login():
     loginPage = LoginPage(driver)
     loginPage.accesoLogin("fake", "fake")
     time.sleep(2)
-    driver.save_screenshot("/Users/sebastiandelvillar/Documents/Testing/admin/admin-python-test/Evidencia/fake_login.png")
+    driver.save_screenshot(
+        "/Users/sebastiandelvillar/Documents/Testing/admin/admin-python-test/Evidencia/fake_login.png")
     time.sleep(5)
     try:
         modal = driver.find_element(By.XPATH, LocatorLogin.MODAL)

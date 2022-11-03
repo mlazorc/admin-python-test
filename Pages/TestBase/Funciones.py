@@ -122,8 +122,6 @@ class Funciones():
     def seleccionarValor(self, xpath, valor, tiempo):
         try:
             val = WebDriverWait(self.driver, 5).until(EC.visibility_of_element_located((By.XPATH, xpath)))
-            val = self.driver.execute_script("arguments[0].scrollIntoView();", val)
-            val = self.driver.find_element(By.XPATH)
             selector = Select(val)
             selector.select_by_visible_text(valor)
             t = time.sleep(tiempo)

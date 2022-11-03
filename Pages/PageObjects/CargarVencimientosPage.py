@@ -27,9 +27,9 @@ class CargarVencimientosPage(object):
             driver = self.driver
             f = Funciones(driver)
             f.cargarArchivo(LocatorCargaVencimientos.INPUTARCHIVO, ruta, tiempo)
-            f.seleccionarValor(LocatorCargaVencimientos.SELECTORMES, str(mes), tiempo)
-            f.seleccionarValor(LocatorCargaVencimientos.SELECTORANNIO, str(annio), tiempo)
-            f.dar_click(LocatorCargaVencimientos.BTNCARGAR)
+            f.seleccionarValor(LocatorCargaVencimientos.SELECTORMES, mes, tiempo)
+            f.seleccionarValor(LocatorCargaVencimientos.SELECTORANNIO, annio, tiempo)
+            f.dar_click(LocatorCargaVencimientos.BTNCARGAR, tiempo)
         except TimeoutException as error:
             print(error.msg)
             print("No fue posible realizar la carga de vencimientos")
