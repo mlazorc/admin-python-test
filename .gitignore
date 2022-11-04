@@ -1,2 +1,6 @@
 # created by virtualenv automatically
 
+/Evidencia
+*.png
+*.jpeg
+*.jpg

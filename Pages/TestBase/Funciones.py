@@ -92,12 +92,41 @@ class Funciones():
 
     def dar_click(self, xpath, tiempo):
         try:
+            global t
             val = WebDriverWait(self.driver, 5).until(EC.visibility_of_element_located((By.XPATH, xpath)))
+            val = self.driver.execute_script("arguments[0].scrollIntoView();", val)
             val = self.driver.find_element(By.XPATH, xpath)
             val.click()
+            print("Click en el elemento {}".format(xpath))
             t = time.sleep(tiempo)
             return t
         except TimeoutException as ex:
             print(ex.msg)
             print("No fue posible localizar el elemento {}".format(xpath))
+            return t
+
+    def cargarArchivo(self, xpath, ruta, tiempo):
+        try:
+            val = WebDriverWait(self.driver, 5).until(EC.visibility_of_element_located((By.XPATH, xpath)))
+            val = self.driver.execute_script("arguments[0].scrollIntoView();", val)
+            val = self.driver.find_element(By.XPATH, xpath)
+            val.send_keys(ruta)
+            print("Se carga el archivo {}".format(ruta))
+            t = time.sleep(tiempo)
+            return t
+        except TimeoutException as error:
+            print(error.msg)
+            print("No se encontró el elemento {}".format(xpath))
+            return t
+
+    def seleccionarValor(self, xpath, valor, tiempo):
+        try:
+            val = WebDriverWait(self.driver, 5).until(EC.visibility_of_element_located((By.XPATH, xpath)))
+            selector = Select(val)
+            selector.select_by_visible_text(valor)
+            t = time.sleep(tiempo)
+            return t
+        except TimeoutException as error:
+            print(error.msg)
+            print("No fue posible encontrar el elemento{}".format(xpath))
             return t

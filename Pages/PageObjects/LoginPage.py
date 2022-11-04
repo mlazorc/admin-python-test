@@ -13,10 +13,10 @@ class LoginPage(object):
             driver = self.driver
             if driver.find_element(By.XPATH, LocatorLogin.LOGO).is_displayed():
                 f = Funciones(driver)
-                f.Texto_xpath_valida(LocatorLogin.USUARIO, usuario, 3)
-                f.Texto_xpath_valida(LocatorLogin.CLAVE, clave, 3)
-                f.dar_click(LocatorLogin.BTNINGRESAR, 3)
+                f.Texto_xpath_valida(LocatorLogin.USUARIO, usuario, .5)
+                f.Texto_xpath_valida(LocatorLogin.CLAVE, clave, .5)
+                f.dar_click(LocatorLogin.BTNINGRESAR, .5)
 
-        except Exception as ex:
-            print(ex)
+        except TimeoutException as ex:
+            print(ex.msg)
             print("No fue posible acceder a la aplicación, elemento {} no encontrado".format(LocatorLogin.LOGO))
