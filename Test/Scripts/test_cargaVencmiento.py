@@ -9,12 +9,14 @@ from Pages.TestBase.Funciones import Funciones
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common import TimeoutException
-
+from selenium.webdriver.chrome.options import Options
 
 def test_acceso_vista():
     global driver
+    options = Options()
+    options.headless = True
     navegador = Service("../../utils/chromedriver")
-    driver = webdriver.Chrome(service=navegador)
+    driver = webdriver.Chrome(options=options, service=navegador)
     f = Funciones(driver)
     f.Navegar("http://certificacion.qaandain.oneapp.cl/admin", 2)
     driver.maximize_window()
@@ -31,6 +33,8 @@ def test_acceso_vista():
 
 def test_carga_masiva_vencimientos():
     global webdriver
+    options = Options()
+    options.headless = True
     navegador = Service("../../utils/chromedriver")
     driver = webdriver.Chrome(service=navegador)
     f = Funciones(driver)
@@ -49,6 +53,8 @@ def test_carga_masiva_vencimientos():
     driver.quit()
 
 def test_archivoCarga_invalido():
+    options = Options()
+    options.headless = True
     navegador = Service("../../utils/chromedriver")
     driver = webdriver.Chrome(service=navegador)
     f = Funciones(driver)

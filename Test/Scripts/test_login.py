@@ -7,7 +7,7 @@ from selenium.webdriver.common.by import By
 from Pages.Locators import LocatorLogin
 from Pages.PageObjects.LoginPage import LoginPage
 from Pages.TestBase.Funciones import Funciones
-
+from selenium.webdriver.chrome.options import Options
 
 def get_User():
     return [
@@ -21,6 +21,8 @@ def get_User():
 @pytest.mark.parametrize("user, clave", get_User())
 def test_correct_login(user, clave):
     global driver
+    options = Options()
+    options.headless = True
     navegador = Service("../../utils/chromedriver")
     driver = webdriver.Chrome(service=navegador)
     f = Funciones(driver)
@@ -43,6 +45,8 @@ def test_correct_login(user, clave):
 
 def test_fake_login():
     global driver, modal
+    options = Options()
+    options.headless = True
     navegador = Service("../../utils/chromedriver")
     driver = webdriver.Chrome(service=navegador)
     f = Funciones(driver)
