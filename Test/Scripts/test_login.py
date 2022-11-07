@@ -22,9 +22,10 @@ def get_User():
 def test_correct_login(user, clave):
     global driver
     options = Options()
-    options.headless = True
+    options.add_argument("--headless")
+    options.add_argument("--window-size=1920x1080")
     navegador = Service("../../utils/chromedriver")
-    driver = webdriver.Chrome(service=navegador)
+    driver = webdriver.Chrome(service=navegador, options = options)
     f = Funciones(driver)
     f.Navegar("http://certificacion.qaandain.oneapp.cl/admin", 2)
     driver.maximize_window()
@@ -46,9 +47,10 @@ def test_correct_login(user, clave):
 def test_fake_login():
     global driver, modal
     options = Options()
-    options.headless = True
+    options.add_argument("--headless")
+    options.add_argument("--window-size=1920x1080")
     navegador = Service("../../utils/chromedriver")
-    driver = webdriver.Chrome(service=navegador)
+    driver = webdriver.Chrome(service=navegador, options = options)
     f = Funciones(driver)
     f.Navegar("http://certificacion.qaandain.oneapp.cl/admin/admin/usuarios", 2)
     driver.maximize_window()
