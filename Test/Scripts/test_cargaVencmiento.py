@@ -16,7 +16,7 @@ def test_acceso_vista():
     options = Options()
     options.add_argument("--headless")
     options.add_argument("--window-size=1920x1080")
-    navegador = Service("/usr/bin/google-chrome")
+    navegador = Service("/var/jenkins_home/workspace/admin-test/utils/chromedriver")
     driver = webdriver.Chrome(service=navegador, options = options)
     f = Funciones(driver)
     f.Navegar("http://certificacion.qaandain.oneapp.cl/admin", 2)
