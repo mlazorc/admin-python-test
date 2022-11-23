@@ -15,7 +15,7 @@ def test_acceso_vista():
     global driver
     options = Options()
     options.headless = True
-    navegador = Service("/usr/bin/chromium")
+    navegador = Service("/usr/local/bin/chromedriver")
     driver = webdriver.Chrome(options=options, service=navegador)
     f = Funciones(driver)
     f.Navegar("http://certificacion.qaandain.oneapp.cl/admin", 2)
