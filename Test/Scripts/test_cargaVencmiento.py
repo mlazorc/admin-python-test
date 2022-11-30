@@ -13,6 +13,7 @@ from selenium.webdriver.chrome.options import Options
 
 def test_acceso_vista():
     global driver
+    options = Options()
     options.add_argument('--disable-setuid-sandbox')
     options.add_argument('--disable-dev-shm-usage')
     options.add_argument('--window-size=600,400')
