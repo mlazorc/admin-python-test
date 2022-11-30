@@ -19,7 +19,7 @@ def test_acceso_vista():
     options.add_argument("--remote-debugging-port=9222")
     options.add_argument('--disable-blink-features=AutomationControlled')
     navegador = Service(executable_path ='/usr/local/bin/chromedriver')
-    webdriver.Remote(command_executor='https://0.0.0.0:4444/wd/hub', options = options)
+    webdriver.Remote(command_executor='https://10.0.0.1:4444/wd/hub', options = options)
     f = Funciones(driver)
     f.Navegar("http://certificacion.qaandain.oneapp.cl/admin", 2)
     driver.maximize_window()
