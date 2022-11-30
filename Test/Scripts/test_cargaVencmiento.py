@@ -22,8 +22,8 @@ def test_acceso_vista():
     options.add_argument("--remote-debugging-port=9222")
     options.add_argument('--disable-gpu')
     options.set_headless(True)
-    capabilities = options.to_capabilities()
-    webdriver.Remote(command_executor='http://127.0.0.1:40000/wd/hub', desired_capabilities=capabilities)
+    navegador = Service('/var/jenkins_home/workspace/admin-pipeline/utils/chromedriver')
+    webdriver.Chrome( service = navegador, options = options)
     f = Funciones(driver)
     f.Navegar("http://certificacion.qaandain.oneapp.cl/admin", 2)
     driver.maximize_window()
@@ -53,7 +53,7 @@ def test_carga_masiva_vencimientos():
     options.add_argument("--remote-debugging-port=9222")
     options.add_argument('--disable-gpu')
     options.headless = True
-    navegador = Service(executable_path ='/usr/bin/chromedriver')
+    navegador = Service('/var/jenkins_home/workspace/admin-pipeline/utils/chromedriver')
     webdriver.Chrome( service = navegador, options = options)
     f = Funciones(driver)
     f.Navegar("http://certificacion.qaandain.oneapp.cl/admin", 2)
@@ -91,7 +91,7 @@ def test_archivoCarga_invalido():
     options.add_argument("--remote-debugging-port=9222")
     options.add_argument('--disable-gpu')
     options.headless = True
-    navegador = Service(executable_path ='/usr/bin/chromedriver')
+    navegador = Service('/var/jenkins_home/workspace/admin-pipeline/utils/chromedriver')
     capabilities = options.to_capabilities()
     webdriver.Chrome( service = navegador, options = options)
     f = Funciones(driver)
