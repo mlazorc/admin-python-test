@@ -19,7 +19,7 @@ def test_acceso_vista():
     options.add_argument("--remote-debugging-port=9222")
     navegador = Service(executable_path ='/usr/local/bin/chromedriver')
     capabilities = options.to_capabilities()
-    webdriver.Remote(command_executor='https://127.0.0.1:4444/wd/hub', options = options)
+    webdriver.Remote(command_executor='https://127.0.0.8:4444/wd/hub', options = options)
     f = Funciones(driver)
     f.Navegar("http://certificacion.qaandain.oneapp.cl/admin", 2)
     driver.maximize_window()
