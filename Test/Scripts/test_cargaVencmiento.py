@@ -13,12 +13,13 @@ from selenium.webdriver.chrome.options import Options
 
 def test_acceso_vista():
     global driver
-    options = Options()
-    options.add_argument("--headless")
-    options.add_argument("--window-size=1920x1080")
-    options.add_argument("--remote-debugging-port=9222")
-    options.add_argument('--disable-blink-features=AutomationControlled')
-    options.add_argument("--disable-gpu")
+    options.add_argument('--disable-setuid-sandbox')
+    options.add_argument('--disable-dev-shm-usage')
+    options.add_argument('--window-size=600,400')
+    options.add_argument('--ignore-certificate-errors')
+    options.add_argument('--disable-accelerated-2d-canvas')
+    options.add_argument('--disable-gpu')
+    options.add_argument('--headless')
     navegador = Service(executable_path ='/usr/local/bin/chromedriver')
     webdriver.Chrome( service = navegador, options = options)
     f = Funciones(driver)
