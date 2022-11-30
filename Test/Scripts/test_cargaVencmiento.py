@@ -18,8 +18,7 @@ def test_acceso_vista():
     options.add_argument("--window-size=1920x1080")
     options.add_argment("--remote-debugging-port=9222")
     navegador = Service('/usr/local/bin/chromedriver')
-    command_executor = "http://localhost:4444/wd/hub"
-    driver = webdriver.Chrome(navegador, command_executor, options)
+    driver = webdriver.Chrome(service=navegador, options = options)
     f = Funciones(driver)
     f.Navegar("http://certificacion.qaandain.oneapp.cl/admin", 2)
     driver.maximize_window()
@@ -43,8 +42,8 @@ def test_carga_masiva_vencimientos():
     options = Options()
     options.add_argument("--headless")
     options.add_argument("--window-size=1920x1080")
+    options.add_argment("--remote-debugging-port=9222")
     navegador = Service('/usr/local/bin/chromedriver')
-    command_executor = "http://localhost:4444/wd/hub"
     driver = webdriver.Chrome(navegador, command_executor, options)
     f = Funciones(driver)
     f.Navegar("http://certificacion.qaandain.oneapp.cl/admin", 2)
@@ -76,6 +75,7 @@ def test_archivoCarga_invalido():
     options = Options()
     options.add_argument("--headless")
     options.add_argument("--window-size=1920x1080")
+    options.add_argment("--remote-debugging-port=9222")
     navegador = Service('/usr/local/bin/chromedriver')
     command_executor = "http://localhost:4444/wd/hub"
     driver = webdriver.Chrome(navegador, command_executor, options)
