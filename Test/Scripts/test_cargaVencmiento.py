@@ -20,7 +20,7 @@ def test_acceso_vista():
     options.add_argument('--disable-blink-features=AutomationControlled')
     options.add_argument("--disable-gpu")
     navegador = Service(executable_path ='/usr/local/bin/chromedriver')
-    webdriver.Chrome(executable_path ='/usr/local/bin/chromedriver', command_executor='https://127.0.0.1/16:4444/wd/hub', options = options)
+    webdriver.Chrome(executable_path ='/usr/local/bin/chromedriver', options = options)
     f = Funciones(driver)
     f.Navegar("http://certificacion.qaandain.oneapp.cl/admin", 2)
     driver.maximize_window()
