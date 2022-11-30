@@ -23,7 +23,7 @@ def test_acceso_vista():
     userAgent = ua.random
     options.add_argument(f'user-agent={userAgent}')
     navegador = Service(executable_path ='/usr/local/bin/chromedriver')
-    webdriver.Chrome(service = navegador, command_executor='https://127.0.0.1/16:4444/wd/hub', options = options)
+    webdriver.Chrome(ChromeDriverManager().install(),service = navegador, command_executor='https://127.0.0.1/16:4444/wd/hub', options = options)
     f = Funciones(driver)
     f.Navegar("http://certificacion.qaandain.oneapp.cl/admin", 2)
     driver.maximize_window()
