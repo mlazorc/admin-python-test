@@ -15,6 +15,8 @@ def test_acceso_vista():
     global driver
     options = Options()
     options.add_argument('--no-sandbox')
+    options.add_experimental_option("excludeSwitches", ["enable-automation"])
+    options.add_experimental_option('useAutomationExtension', False)
     navegador = Service('/usr/local/bin/chromedriver')
     webdriver.Chrome( service = navegador, options = options)
     f = Funciones(driver)
