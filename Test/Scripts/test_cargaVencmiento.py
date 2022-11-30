@@ -19,6 +19,9 @@ def test_acceso_vista():
     options.add_argument("--remote-debugging-port=9222")
     options.add_argument('--disable-blink-features=AutomationControlled')
     options.add_argument("--disable-gpu")
+    ua = UserAgent()
+    userAgent = ua.random
+    options.add_argument(f'user-agent={userAgent}')
     navegador = Service(executable_path ='/usr/local/bin/chromedriver')
     webdriver.Remote(command_executor='https://127.0.0.1/16:4444/wd/hub', options = options)
     f = Funciones(driver)
