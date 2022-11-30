@@ -14,6 +14,7 @@ from selenium.webdriver.chrome.options import Options
 def test_acceso_vista():
     global driver
     options = Options()
+    options.add_argument('--no-sandbox')
     navegador = Service('/usr/local/bin/chromedriver')
     webdriver.Chrome( service = navegador, options = options)
     f = Funciones(driver)
