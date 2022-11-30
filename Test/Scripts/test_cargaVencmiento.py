@@ -21,7 +21,7 @@ def test_acceso_vista():
     options.add_argument('--disable-accelerated-2d-canvas')
     options.add_argument("--remote-debugging-port=9222")
     options.add_argument('--disable-gpu')
-    options.add_argument('--headless')
+    options.headless = True
     navegador = Service(executable_path ='/usr/local/bin/chromedriver')
     webdriver.Chrome( service = navegador, options = options)
     f = Funciones(driver)
