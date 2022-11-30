@@ -14,7 +14,8 @@ from selenium.webdriver.chrome.options import Options
 def test_acceso_vista():
     global driver
     options = Options()
-    webdriver.Chrome( '/usr/local/bin/chromedriver', options = options)
+    navegador = Service('/usr/local/bin/chromedriver')
+    webdriver.Chrome( service = navegador, options = options)
     f = Funciones(driver)
     f.Navegar("http://certificacion.qaandain.oneapp.cl/admin", 2)
     driver.maximize_window()
