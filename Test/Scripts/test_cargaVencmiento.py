@@ -13,7 +13,7 @@ from selenium.webdriver.chrome.options import Options
 
 def test_acceso_vista():
     global driver
-    options = Options()
+    options = ChromeOptions()
     options.add_argument('--disable-setuid-sandbox')
     options.add_argument('--disable-dev-shm-usage')
     options.add_argument('--window-size=600,400')
@@ -22,8 +22,8 @@ def test_acceso_vista():
     options.add_argument("--remote-debugging-port=9222")
     options.add_argument('--disable-gpu')
     options.set_headless(True)
-    navegador = Service(executable_path ='/usr/bin/chromedriver')
-    webdriver.Chrome( service = navegador, options = options)
+    capabilities = options.to_capabilities()
+    webdriver.Remote(command_executor='http://127.0.0.1:40000/wd/hub', desired_capabilities=capabilities)
     f = Funciones(driver)
     f.Navegar("http://certificacion.qaandain.oneapp.cl/admin", 2)
     driver.maximize_window()
