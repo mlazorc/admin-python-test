@@ -22,7 +22,7 @@ def test_acceso_vista():
     options.add_argument("--remote-debugging-port=9222")
     options.add_argument('--disable-gpu')
     options.headless = True
-    navegador = Service(executable_path ='/usr/local/bin/chromedriver')
+    navegador = Service(executable_path ='/usr/bin/chromedriver')
     webdriver.Chrome( service = navegador, options = options)
     f = Funciones(driver)
     f.Navegar("http://certificacion.qaandain.oneapp.cl/admin", 2)
@@ -45,10 +45,15 @@ def test_acceso_vista():
 
 def test_carga_masiva_vencimientos():
     options = Options()
-    options.add_argument("--headless")
-    options.add_argument("--window-size=1920x1080")
+    options.add_argument('--disable-setuid-sandbox')
+    options.add_argument('--disable-dev-shm-usage')
+    options.add_argument('--window-size=600,400')
+    options.add_argument('--ignore-certificate-errors')
+    options.add_argument('--disable-accelerated-2d-canvas')
     options.add_argument("--remote-debugging-port=9222")
-    navegador = Service(executable_path ='/usr/local/bin/chromedriver')
+    options.add_argument('--disable-gpu')
+    options.headless = True
+    navegador = Service(executable_path ='/usr/bin/chromedriver')
     webdriver.Chrome( service = navegador, options = options)
     f = Funciones(driver)
     f.Navegar("http://certificacion.qaandain.oneapp.cl/admin", 2)
@@ -78,10 +83,15 @@ def test_carga_masiva_vencimientos():
 
 def test_archivoCarga_invalido():
     options = Options()
-    options.add_argument("--headless")
-    options.add_argument("--window-size=1920x1080")
+    options.add_argument('--disable-setuid-sandbox')
+    options.add_argument('--disable-dev-shm-usage')
+    options.add_argument('--window-size=600,400')
+    options.add_argument('--ignore-certificate-errors')
+    options.add_argument('--disable-accelerated-2d-canvas')
     options.add_argument("--remote-debugging-port=9222")
-    navegador = Service(executable_path ='/usr/local/bin/chromedriver')
+    options.add_argument('--disable-gpu')
+    options.headless = True
+    navegador = Service(executable_path ='/usr/bin/chromedriver')
     capabilities = options.to_capabilities()
     webdriver.Chrome( service = navegador, options = options)
     f = Funciones(driver)
