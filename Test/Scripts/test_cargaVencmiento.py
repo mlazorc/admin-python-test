@@ -17,7 +17,7 @@ def test_acceso_vista():
     options.add_argument('--headless')
     options.add_argument('--no-sandbox')
     options.add_argument('--disable-dev-shm-usage')
-    navegador = Service('/usr/bin/google-chrome')
+    navegador = Service('/usr/local/bin/chromedriver')
     webdriver.Chrome( service = navegador, options = options)
     f = Funciones(driver)
     f.Navegar("http://certificacion.qaandain.oneapp.cl/admin", 2)
