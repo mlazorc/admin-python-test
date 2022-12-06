@@ -10,6 +10,7 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common import TimeoutException
 from selenium.webdriver.chrome.options import Options
+from webdriver_manager.chrome import ChromeDriverManager
 
 def test_acceso_vista():
     global driver
@@ -19,7 +20,7 @@ def test_acceso_vista():
     options.add_argument('--disable-dev-shm-usage')
     options.add_argument('--user-data-dir=~/.config/google-chrome')
     navegador = Service('/usr/local/bin/chromedriver')
-    webdriver.Chrome( service = navegador, options = options)
+    driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
     f = Funciones(driver)
     f.Navegar("http://certificacion.qaandain.oneapp.cl/admin", 2)
     driver.maximize_window()
