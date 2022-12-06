@@ -18,7 +18,7 @@ def test_acceso_vista():
     options.add_argument('--headless')
     options.add_experimental_option("excludeSwitches", ["enable-automation"])
     options.add_experimental_option('useAutomationExtension', False)
-    navegador = Service('/usr/local/bin/chromedriver')
+    navegador = Service('../../utils/chromedriver')
     webdriver.Chrome( service = navegador, options = options)
     f = Funciones(driver)
     f.Navegar("http://certificacion.qaandain.oneapp.cl/admin", 2)
