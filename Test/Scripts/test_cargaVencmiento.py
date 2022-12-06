@@ -19,10 +19,8 @@ def test_acceso_vista():
     options.add_argument('--no-sandbox')
     options.add_argument('--disable-dev-shm-usage')
     options.add_argument('--disable-gpu')
-    options.add_experimental_option("excludeSwitches", ["enable-automation"])
-    options.add_experimental_option('useAutomationExtension', False)
     options.binary_location = '/usr/local/bin/chromedriver'
-    service = Service('/usr/bin/google-chrome')
+    service = Service('/usr/local/bin/chromedriver')
     driver = webdriver.Chrome(service = service, options=options)
     f = Funciones(driver)
     f.Navegar("http://certificacion.qaandain.oneapp.cl/admin", 2)
