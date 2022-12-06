@@ -20,7 +20,7 @@ def test_acceso_vista():
     options.add_argument('--disable-dev-shm-usage')
     options.add_argument('--user-data-dir=~/.config/google-chrome')
     navegador = Service('/usr/local/bin/chromedriver')
-    driver = webdriver.Chrome(service=Service(navegador), options=options)
+    driver = webdriver.Chrome(service=navegador, options=options)
     f = Funciones(driver)
     f.Navegar("http://certificacion.qaandain.oneapp.cl/admin", 2)
     driver.maximize_window()
