@@ -18,7 +18,7 @@ def test_acceso_vista():
     options.add_argument('--headless')
     options.binary_location = '/usr/bin/google-chrome'
     navegador = Service('/usr/local/bin/chromedriver')
-    driver = webdriver.Chrome(executable_path=navegador, options=options)
+    driver = webdriver.Chrome(executable_path=str(navegador), options=options)
     f = Funciones(driver)
     f.Navegar("http://certificacion.qaandain.oneapp.cl/admin", 2)
     driver.maximize_window()
