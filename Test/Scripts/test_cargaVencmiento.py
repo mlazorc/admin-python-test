@@ -18,6 +18,7 @@ def test_acceso_vista():
     options.add_argument('--headless')
     options.add_argument('--no-sandbox')
     options.add_argument('--disable-dev-shm-usage')
+    options.add_argument('--enable-logging=stdout')
     options.add_argument('--user-data-dir=~/.config/google-chrome')
     navegador = Service('/usr/local/bin/chromedriver')
     driver = webdriver.Chrome(service=navegador, options=options)
