@@ -16,7 +16,7 @@ def test_acceso_vista():
     global driver
     options = Options()
     options.add_argument('--headless')
-    options.binary_location = '/usr/bin/google-chrome'
+    options.binary_location = '/usr/local/bin/chromedriver'
     service = Service('/usr/bin/google-chrome')
     driver = webdriver.Chrome(service = service, options=options)
     f = Funciones(driver)
