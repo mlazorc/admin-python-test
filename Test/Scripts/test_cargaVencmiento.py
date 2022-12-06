@@ -35,7 +35,7 @@ def test_carga_masiva_vencimientos():
     global webdriver
     options = Options()
     options.headless = True
-    navegador = Service("../../utils/chromedriver")
+    navegador = Service("/usr/local/bin/chromedriver")
     driver = webdriver.Chrome(service=navegador)
     f = Funciones(driver)
     f.Navegar("http://certificacion.qaandain.oneapp.cl/admin", 2)
@@ -55,7 +55,7 @@ def test_carga_masiva_vencimientos():
 def test_archivoCarga_invalido():
     options = Options()
     options.headless = True
-    navegador = Service("../../utils/chromedriver")
+    navegador = Service("/usr/local/bin/chromedriver")
     driver = webdriver.Chrome(service=navegador)
     f = Funciones(driver)
     f.Navegar("http://certificacion.qaandain.oneapp.cl/admin", 2)
