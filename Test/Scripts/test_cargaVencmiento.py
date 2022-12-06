@@ -14,11 +14,11 @@ from selenium.webdriver.chrome.options import Options
 def test_acceso_vista():
     global driver
     options = Options()
-    options.add_argument('--no-sandbox')
     options.add_argument('--headless')
+    options.add_argument('--no-sandbox')
     options.add_argument('--disable-dev-shm-usage')
     navegador = Service('../../utils/chromedriver')
-    webdriver.Chrome( service = navegador, options = options)
+    webdriver.Chrome( '/usr/local/bin/chromedriver', options = options)
     f = Funciones(driver)
     f.Navegar("http://certificacion.qaandain.oneapp.cl/admin", 2)
     driver.maximize_window()
