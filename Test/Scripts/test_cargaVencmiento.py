@@ -53,7 +53,7 @@ def test_carga_masiva_vencimientos():
     loginPage.accesoLogin("admin", "andain5546")
     carga = CargarVencimientosPage(driver)
     carga.accesoVista(2)
-    carga.cargaVencimientos("/Users/sebastiandelvillar/Downloads/test_carga_3.csv", "Octubre", "2022", 2)
+    carga.cargaVencimientos("../../utils/test_carga_3.csv", "Octubre", "2022", 2)
     try: 
         parrafo = driver.find_element(By.XPATH, "//*[@class='modal-text']")
         textoAlerta = "Se ha ingresado una solicitud de carga." + "\n" + "Cuando el archivo este listo, se enviará un correo de notificación."
@@ -87,7 +87,7 @@ def test_archivoCarga_invalido():
     loginPage.accesoLogin("admin", "andain5546")
     carga = CargarVencimientosPage(driver)
     carga.accesoVista(2)
-    carga.cargaVencimientos("/Users/sebastiandelvillar/Downloads/GC-13741_CP.xlsx", "Octubre", "2022", .5)
+    carga.cargaVencimientos("../../utils/test_carga_3.xlsx", "Octubre", "2022", .5)
     time.sleep(5)
     try:
         parrafo = driver.find_element(By.XPATH, "//*[@class='modal-text']")
