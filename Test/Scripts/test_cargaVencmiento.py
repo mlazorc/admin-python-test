@@ -19,6 +19,9 @@ def test_acceso_vista():
     options.binary_location ='/usr/bin/chromium'
     service = Service('/usr/local/bin/chromedriver')
     driver = webdriver.Chrome(service = service, options=options)
+    navegador = Service("/usr/local/bin/chromedriver")
+    driver = webdriver.Chrome(options=options, service=navegador)
+
     f = Funciones(driver)
     f.Navegar("http://certificacion.qaandain.oneapp.cl/admin", 2)
     driver.maximize_window()
@@ -46,6 +49,8 @@ def test_carga_masiva_vencimientos():
     options.binary_location ='/usr/bin/chromium'
     service = Service('/usr/local/bin/chromedriver')
     driver = webdriver.Chrome(service = service, options=options)
+    navegador = Service("/usr/local/bin/chromedriver")
+    driver = webdriver.Chrome(service=navegador)
     f = Funciones(driver)
     f.Navegar("http://certificacion.qaandain.oneapp.cl/admin", 2)
     driver.maximize_window()
@@ -80,6 +85,8 @@ def test_archivoCarga_invalido():
     options.binary_location ='/usr/bin/chromium'
     service = Service('/usr/local/bin/chromedriver')
     driver = webdriver.Chrome(service = service, options=options)
+    navegador = Service("/usr/local/bin/chromedriver")
+    driver = webdriver.Chrome(service=navegador)
     f = Funciones(driver)
     f.Navegar("http://certificacion.qaandain.oneapp.cl/admin", 2)
     driver.maximize_window()
