@@ -32,6 +32,7 @@ def test_acceso_vista():
         assert url == vistaCarga, "No fue posible acceder a la vista de cargas"
         print("Test 1: Acceso correcto a la vista de carga de vencimientos")
         print("Prueba Ok")
+        print("Test push")
     except TimeoutException as error:
         print(error.msg)
         print("No fue posible acceder a la vista...Prueba fallida!")
