@@ -22,7 +22,7 @@ def test_acceso_vista():
     service = Service('/usr/local/bin/chromedriver')
     driver = webdriver.Chrome(service = service, options=options)
     f = Funciones(driver)
-    f.Navegar("http://certificacion.fcv-chile.oneapp.cl/admin", 2)
+    f.Navegar("http://certificacion.qaandain.oneapp.cl/admin", 2)
     driver.maximize_window()
     loginPage = LoginPage(driver)
     loginPage.accesoLogin("admin", "andain5546")
