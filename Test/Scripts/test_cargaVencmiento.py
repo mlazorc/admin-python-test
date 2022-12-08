@@ -20,7 +20,7 @@ def test_acceso_vista():
     options.add_argument('--disable-dev-shm-usage')
     options.add_argument('--disable-gpu')
     options.binary_location = '/usr/local/bin/chromedriver'
-    service = Service('/var/jenkins_home/workspace/admin-pipeline/utils/chromedriver')
+    service = Service('/usr/local/bin/chromedriver')
     driver = webdriver.Chrome(service = service, options=options)
     f = Funciones(driver)
     f.Navegar("http://certificacion.qaandain.oneapp.cl/admin", 2)
