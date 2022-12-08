@@ -22,10 +22,12 @@ def get_User():
 def test_correct_login(user, clave):
     global driver
     options = Options()
-    options.add_argument("--headless")
-    options.add_argument("--window-size=1920x1080")
-    navegador = Service("../../utils/chromedriver")
-    driver = webdriver.Chrome(service=navegador, options = options)
+    options.add_argument('--headless')
+    options.add_argument('--no-sandbox')
+    options.add_argument('--disable-dev-shm-usage')
+    options.binary_location ='/usr/bin/chromium'
+    service = Service('/usr/local/bin/chromedriver')
+    driver = webdriver.Chrome(service = service, options=options)
     f = Funciones(driver)
     f.Navegar("http://certificacion.qaandain.oneapp.cl/admin", 2)
     driver.maximize_window()
@@ -47,10 +49,12 @@ def test_correct_login(user, clave):
 def test_fake_login():
     global driver, modal
     options = Options()
-    options.add_argument("--headless")
-    options.add_argument("--window-size=1920x1080")
-    navegador = Service("../../utils/chromedriver")
-    driver = webdriver.Chrome(service=navegador, options = options)
+    options.add_argument('--headless')
+    options.add_argument('--no-sandbox')
+    options.add_argument('--disable-dev-shm-usage')
+    options.binary_location ='/usr/bin/chromium'
+    service = Service('/usr/local/bin/chromedriver')
+    driver = webdriver.Chrome(service = service, options=options)
     f = Funciones(driver)
     f.Navegar("http://certificacion.qaandain.oneapp.cl/admin/admin/usuarios", 2)
     driver.maximize_window()
