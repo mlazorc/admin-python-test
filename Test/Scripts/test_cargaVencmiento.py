@@ -35,9 +35,11 @@ def test_acceso_vista():
         assert url == vistaCarga, "No fue posible acceder a la vista de cargas"
         print("Test 1: Acceso correcto a la vista de carga de vencimientos")
         print("Prueba Ok")
+        driver.save_screenshot("../../Evidencia/fake_login.png")
     except TimeoutException as error:
         print(error.msg)
         print("No fue posible acceder a la vista...Prueba fallida!")
+        driver.save_screenshot("../../Evidencia/fake_login.png")
     time.sleep(5)
     driver.quit()
 
@@ -65,10 +67,12 @@ def test_carga_masiva_vencimientos():
         assert parrafo.text == textoAlerta, "Carga no realizada"
         print("Test: 2 Carga masiva de vencimientos realizada con éxito")
         print("Prueba OK")
+        driver.save_screenshot("../../Evidencia/fake_login.png")
         driver.quit()
     except TimeoutException as error:
         print(error.msg)
         print("No fue posible realizar carga del archivo...Prueba Fallida!")
+        driver.save_screenshot("../../Evidencia/fake_login.png")
         driver.quit()
 
     print("Test 2: Carga de vencimientos realizada con éxito")
@@ -91,7 +95,7 @@ def test_archivoCarga_invalido():
     f.Navegar("http://certificacion.qaandain.oneapp.cl/admin", 2)
     driver.maximize_window()
     loginPage = LoginPage(driver)
-    loginPage.accesoLogin("", "")
+    loginPage.accesoLogin("admin", "andain5546")
     carga = CargarVencimientosPage(driver)
     carga.accesoVista(2)
     carga.cargaVencimientos("../../utils/test_carga_3.xlsx", "Octubre", "2022", .5)
