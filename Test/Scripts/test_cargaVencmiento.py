@@ -32,9 +32,11 @@ def test_acceso_vista():
         assert url == vistaCarga, "No fue posible acceder a la vista de cargas"
         print("Test 1: Acceso correcto a la vista de carga de vencimientos")
         print("Prueba Ok")
+        driver.save_screenshot("../../Evidencia/fake_login.png")
     except TimeoutException as error:
         print(error.msg)
         print("No fue posible acceder a la vista...Prueba fallida!")
+        driver.save_screenshot("../../Evidencia/fake_login.png")
     time.sleep(5)
     driver.quit()
 
@@ -60,10 +62,12 @@ def test_carga_masiva_vencimientos():
         assert parrafo.text == textoAlerta, "Carga no realizada"
         print("Test: 2 Carga masiva de vencimientos realizada con éxito")
         print("Prueba OK")
+        driver.save_screenshot("../../Evidencia/fake_login.png")
         driver.quit()
     except TimeoutException as error:
         print(error.msg)
         print("No fue posible realizar carga del archivo...Prueba Fallida!")
+        driver.save_screenshot("../../Evidencia/fake_login.png")
         driver.quit()
 
     print("Test 2: Carga de vencimientos realizada con éxito")

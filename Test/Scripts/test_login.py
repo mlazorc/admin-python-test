@@ -61,8 +61,7 @@ def test_fake_login():
     loginPage = LoginPage(driver)
     loginPage.accesoLogin("fake", "fake")
     time.sleep(2)
-    driver.save_screenshot(
-        "/Users/sebastiandelvillar/Documents/Testing/admin/admin-python-test/Evidencia/fake_login.png")
+    driver.save_screenshot("../../Evidencia/fake_login.png")
     time.sleep(5)
     try:
         modal = driver.find_element(By.XPATH, LocatorLogin.MODAL)
