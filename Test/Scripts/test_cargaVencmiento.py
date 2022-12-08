@@ -84,7 +84,7 @@ def test_archivoCarga_invalido():
     f.Navegar("http://certificacion.qaandain.oneapp.cl/admin", 2)
     driver.maximize_window()
     loginPage = LoginPage(driver)
-    loginPage.accesoLogin("admin", "andain5546")
+    loginPage.accesoLogin("", "")
     carga = CargarVencimientosPage(driver)
     carga.accesoVista(2)
     carga.cargaVencimientos("../../utils/test_carga_3.xlsx", "Octubre", "2022", .5)
