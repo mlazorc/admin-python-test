@@ -67,7 +67,7 @@ def test_fake_login():
         modal = driver.find_element(By.XPATH, LocatorLogin.MODAL)
         if modal.is_displayed():
             print("Test 2: Crendenciales incorrectas")
-            print("Prueba OK")
+            print("Prueba OK 1")
     except AssertionError as msg:
         print(msg)
         print("El elemento {} no está presente".format(modal))
