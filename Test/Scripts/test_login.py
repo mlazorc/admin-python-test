@@ -38,7 +38,7 @@ def test_correct_login(user, clave):
         sitio = driver.current_url
         url = "http://certificacion.qaandain.oneapp.cl/admin/admin/usuarios"
         assert sitio == url, "No fue posible acceder al sitio"
-        driver.save_screenshot("/var_jenkins_home/workspace/admin-pipeline/Evidencia/fake_login.png")
+        driver.save_screenshot("/var/jenkins_home/workspace/admin-pipeline/Evidencia/fake_login.png")
         print("Test 1: Credenciales correctas")
         print("Prueba Ok")
     except AssertionError as msg:
@@ -61,15 +61,17 @@ def test_fake_login():
     loginPage = LoginPage(driver)
     loginPage.accesoLogin("fake", "fake")
     time.sleep(2)
-    driver.save_screenshot("/var_jenkins_home/workspace/admin-pipeline/Evidencia/fake_login.png")
+    driver.save_screenshot("/var/jenkins_home/workspace/admin-pipeline/Evidencia/fake_login.png")
     time.sleep(5)
     try:
         modal = driver.find_element(By.XPATH, LocatorLogin.MODAL)
         if modal.is_displayed():
             print("Test 2: Crendenciales incorrectas")
-            print("Prueba Ok")
+            print("Prueba OK")
     except AssertionError as msg:
         print(msg)
         print("El elemento {} no está presente".format(modal))
 
     driver.quit()
+
+
