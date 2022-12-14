@@ -40,7 +40,7 @@ def test_correct_login(user, clave):
         assert sitio == url, "No fue posible acceder al sitio"
         driver.save_screenshot("/var/jenkins_home/workspace/admin-pipeline/Evidencia/fake_login.png")
         print("Test 1: Credenciales correctas")
-        print("FUNCIONAAAAAAAAAAAAAAAAA")
+        print("Prueba OK")
     except AssertionError as msg:
         print(msg)
     driver.quit()
