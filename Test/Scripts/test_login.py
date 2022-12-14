@@ -38,7 +38,7 @@ def test_correct_login(user, clave):
         sitio = driver.current_url
         url = "http://certificacion.qaandain.oneapp.cl/admin/admin/usuarios"
         assert sitio == url, "No fue posible acceder al sitio"
-        driver.save_screenshot("/var/jenkins_home/workspace/admin-pipeline@2/Evidencia/fake_login.png")
+        driver.save_screenshot("/var/jenkins_home/workspace/admin-pipeline@2/Evidencia/correct_login.png")
         print("Test 1: Credenciales correctas")
         print("Prueba OK 6")
     except AssertionError as msg:
