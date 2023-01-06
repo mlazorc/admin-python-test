@@ -27,8 +27,9 @@ def test_correct_login(user, clave):
     options.add_argument("--window-size=1920,1080");
     options.add_argument('--no-sandbox')
     options.add_argument('--disable-dev-shm-usage')
-    options.binary_location ='/usr/bin/chromium'
-    service = Service('/usr/local/bin/chromedriver')
+    '''options.binary_location ='/usr/bin/chromium'''
+    service = Service('../../utils/chromedriver')
+    '''service = Service('/usr/local/bin/chromedriver')'''
     driver = webdriver.Chrome(service = service, options=options)
     f = Funciones(driver)
     f.Navegar("http://certificacion.qaandain.oneapp.cl/admin", 2)
@@ -56,8 +57,9 @@ def test_fake_login():
     options.add_argument("--window-size=1920,1080");
     options.add_argument('--no-sandbox')
     options.add_argument('--disable-dev-shm-usage')
-    options.binary_location ='/usr/bin/chromium'
-    service = Service('/usr/local/bin/chromedriver')
+    '''options.binary_location ='/usr/bin/chromium'
+    service = Service('/usr/local/bin/chromedriver')'''
+    service = Service('../../utils/chromedriver')
     driver = webdriver.Chrome(service = service, options=options)
     f = Funciones(driver)
     f.Navegar("http://certificacion.qaandain.oneapp.cl/admin/admin/usuarios", 2)

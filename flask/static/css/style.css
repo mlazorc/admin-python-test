@@ -1,0 +1,7 @@
+body{
+    background-image: url('../img/back.jpg');
+}
+
+div.login-label{
+    color: black;
+}

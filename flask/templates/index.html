@@ -1,0 +1,78 @@
+{% extends 'base/base.html' %}
+{% block title %} {{title}} {% endblock %}
+
+{% block content %}
+    
+    {%from "_macro.html" import render_field %}
+        
+    <div class="container">
+        <h1 class="text-center mt-5 mb-5 text-light">Antuapp</h1>
+    </div>
+    <div class="container">
+        <div class="row row-col-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-2">
+    
+            <div class="col-md-6 mb-3">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="text-center">Registro de Usuarios</h5>
+                    </div>
+                    <div class="card-body">
+                        <form name="loginForm" id="loginForm" method="POST" action="/usuario">
+               
+                            <div class="row control-group">
+                               <div class="form-group col-xs-12 floating-label-form-group controls" name="username" id="username">
+                                    {{render_field(form.username, class="form-control text-secondary p-3 mb-2 bg-light text-dark",)}}
+                               </div>
+                            </div>
+                            <div class="row control-group">
+                                <div class="form-group col-xs-12 floating-label-form-group controls" name="clave" id="clave">
+                                    <td>{{render_field(form.clave, class="form-control text-secondary p-3 mb-2 bg-light text-dark",  type="password")}}</td>
+                                </div>
+                            </div>
+                            <div class="row control-group">
+                                <div class="form-group col-xs-12 floating-label-form-group controls" name="nombre_completo" id="nombre_completo">
+                                    <td>{{render_field(form.nombre_completo, class="form-control text-secondary p-3 mb-2 bg-light text-dark")}}</td>
+                                </div>
+                            </div>
+                            <div class="row control-group">
+                                <div class="form-group col-xs-12 floating-label-form-group controls">
+                                    <button type="submit" class="btn btn-outline-primary btn-sm">Ingresar</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="text-center">Usuarios</h5>
+                    </div>
+                    <div class="card-body">
+                        <ul class="list-group">
+                            <div class="row row-col-2 row-col-sm-2 row-cols-md-3 row-cols-lg-3">
+                                {%for usuario in usuarios%}
+                                    <div class="col">
+                                        <li class="list-group-item mb-3">
+                                            <form action="/edit/{{usuario.username}}" method="POST">
+                                                <input type="text" class="form-control" value="{{usuario.username}}" name="username">
+                                                <small>Clave</small>
+                                                <input type="text" class="form-control" value="{{usuario.clave}}" name="clave">
+                                                <small>Nombre Completo</small>
+                                                <input type="text" class="form-control" value="{{usuario.nombre_completo}}" name="nombre_completo">
+                                                <button class="btn btn-primary btn-sm" type="submit">Editar</button>
+                                                <a href="{{url_for('delete', username=usuario.username)}}" class="btn btn-danger btn-">Eliminar</a>
+                                            </form>
+                                        </li>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
+{% endblock content%}

@@ -3,11 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="0b6aa9d6-e81a-447e-85d5-4920c67bfcaf" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pages/PageObjects/CargarVencimientosPage.py" beforeDir="false" afterPath="$PROJECT_DIR$/Pages/PageObjects/CargarVencimientosPage.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Pages/TestBase/Funciones.py" beforeDir="false" afterPath="$PROJECT_DIR$/Pages/TestBase/Funciones.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Test/Scripts/fake_login.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Test/Scripts/test_cargaVencmiento.py" beforeDir="false" afterPath="$PROJECT_DIR$/Test/Scripts/test_cargaVencmiento.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test/Scripts/report.html" beforeDir="false" afterPath="$PROJECT_DIR$/Test/Scripts/report.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Test/Scripts/test_login.py" beforeDir="false" afterPath="$PROJECT_DIR$/Test/Scripts/test_login.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/chromedriver" beforeDir="false" afterPath="$PROJECT_DIR$/utils/chromedriver" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

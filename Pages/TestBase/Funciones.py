@@ -1,5 +1,5 @@
 import time
-import unittest
+import PyPDF2
 
 from selenium import webdriver
 from selenium.common import TimeoutException
@@ -130,3 +130,4 @@ class Funciones():
             print(error.msg)
             print("No fue posible encontrar el elemento{}".format(xpath))
             return t
+
