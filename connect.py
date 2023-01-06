@@ -18,3 +18,6 @@ def dbConnection():
     except ConnectionError:
         print("Error de conexión con la base de datos")
     return client
+
+
+
