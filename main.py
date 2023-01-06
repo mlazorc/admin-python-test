@@ -7,8 +7,6 @@ from usuario import Usuario
 
 
 db = connect.dbConnection()
-
-
 app = Flask(__name__)
 
 @app.route('/', methods=['GET', 'POST'])
