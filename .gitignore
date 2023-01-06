@@ -1,6 +1,5 @@
 # created by virtualenv automatically
 *.png
 *.jpeg
-*.jpg
 utils/
 flask/
