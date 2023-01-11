@@ -6,21 +6,21 @@
     {%from "_macro.html" import render_field %}
         
     <div class="container">
-        <h1 class="text-center mt-5 mb-5 text-dark">Antuapp</h1>
+        <h1 class="text-center mt-5 mb-5 text-light">ANTU</h1>
     </div>
     <div class="container">
         <div class="row row-col-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-2">
     
             <div class="col-md-6 mb-3">
-                <div class="card">
+                <div class="card text-bg-dark bg-transparent border border-primary">
                     <div class="card-header">
-                        <h5 class="text-center">Registro de Usuarios</h5>
+                        <h5 class="text-center text-bg-dark bg-transparent ">Registro de Usuarios</h5>
                     </div>
                     <div class="card-body">
                         <form name="loginForm" id="loginForm" method="POST" action="/usuario">
                
                             <div class="row control-group">
-                               <div class="form-group col-xs-12 floating-label-form-group controls" name="username" id="username">
+                               <div class="form-group col-xs-12 floating-label-form-group controls text-light" name="username" id="username">
                                     {{render_field(form.username, class="form-control text-secondary p-3 mb-2 bg-light text-dark",)}}
                                         {% for error in form.username.errors%}
                                             <span>{{error}}</span>
@@ -51,7 +51,7 @@
 
            
             <div class="col-md-6">
-                <table class="table table-dark table-striped">
+                <table class=" table bg-transparent text-light border border-primary">
                 
                     <thead>
                       <tr align="center">
