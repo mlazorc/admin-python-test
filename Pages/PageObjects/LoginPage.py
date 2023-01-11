@@ -2,6 +2,7 @@ from selenium.webdriver.common.by import By
 from selenium.common.exceptions import TimeoutException
 from Pages.Locators import LocatorLogin
 from Pages.TestBase.Funciones import Funciones
+from forms import CommentForm
 
 
 class LoginPage(object):

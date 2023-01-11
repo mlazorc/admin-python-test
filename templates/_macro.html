@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}"
+<link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
 {% macro render_field(field) %}
 
     <div class="login-label">
@@ -6,12 +6,12 @@
     </div>
     <dd>{{ field(**kwargs)|safe}}
 
-    {%if field.errors%}
-    <ul>
-        {%for error in field.errors %}
-            <li>{{ error }}</li>
-        {%endfor %}
-    </ul>
-    {%endif%}
+    {% if field.errors %}
+        <ul class="errors">
+            {% for error in field.errors %}
+                <li>{{ error }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
     
 {% endmacro %}

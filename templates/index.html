@@ -22,16 +22,21 @@
                             <div class="row control-group">
                                <div class="form-group col-xs-12 floating-label-form-group controls" name="username" id="username">
                                     {{render_field(form.username, class="form-control text-secondary p-3 mb-2 bg-light text-dark",)}}
-                               </div>
+                                        {% for error in form.username.errors%}
+                                            <span>{{error}}</span>
+                                        {%endfor%}
+                                </div>
                             </div>
                             <div class="row control-group">
                                 <div class="form-group col-xs-12 floating-label-form-group controls" name="clave" id="clave">
                                     <td>{{render_field(form.clave, class="form-control text-secondary p-3 mb-2 bg-light text-dark",  type="password")}}</td>
+                                         
                                 </div>
                             </div>
                             <div class="row control-group">
                                 <div class="form-group col-xs-12 floating-label-form-group controls" name="nombre_completo" id="nombre_completo">
                                     <td>{{render_field(form.nombre_completo, class="form-control text-secondary p-3 mb-2 bg-light text-dark")}}</td>
+                                       
                                 </div>
                             </div>
                             <div class="row control-group">
@@ -39,40 +44,40 @@
                                     <button type="submit" class="btn btn-outline-primary btn-sm">Ingresar</button>
                                 </div>
                             </div>
-                            {{render_field(form.honeyPot, class="form-control")}}
                         </form>
                     </div>
                 </div>
             </div>
 
+           
             <div class="col-md-6">
-                <div class="card">
-                    <div class="card-header">
-                        <h5 class="text-center">Listado de Usuarios</h5>
-                    </div>
-                    <div class="card-body">
-                        <ul class="list-group">
-                            <div class="row row-col-2 row-col-sm-2 row-cols-md-3 row-cols-lg-3">
-                                {%for usuario in usuarios%}
-                                    <div class="col">
-                                        <li class="list-group-item mb-3">
-                                            <form action="/edit/{{usuario.username}}" method="POST">
-                                                <input type="text" class="form-control" value="{{usuario.username}}" name="username">
-                                                <small>Clave</small>
-                                                <input type="password" class="form-control" value="{{usuario.clave}}" name="clave">
-                                                <small>Nombre Completo</small>
-                                                <input type="text" class="form-control" value="{{usuario.nombre_completo}}" name="nombre_completo">
-                                                <button class="btn btn-primary btn-sm" type="submit">Editar</button>
-                                                <a href="{{url_for('delete', username=usuario.username)}}" class="btn btn-danger btn-">Eliminar</a>
-                                            </form>
-                                        </li>
-                                    </div>
-                                {% endfor %}
-                            </div>
-                        </ul>
-                    </div>
-                </div>
+                <table class="table table-dark table-striped">
+                
+                    <thead>
+                      <tr align="center">
+                        <th scope="col">Usuario</th>
+                        <th scope="col">Clave</th>
+                        <th scope="col">Nombre completo</th>
+                        <th scope="col" colspan="2">Acciones</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                        {%for usuario in usuarios %}   
+                        <form action="/edit/{{usuario.username}}" method="POST">
+                            <tr>
+                                
+                                <td><input type="text" class="form-control" value="{{usuario.username}}" name="username"></td>
+                                <td><input type="text" class="form-control" value="{{usuario.clave}}" name="clave"></td>
+                                <td><input type="text" class="form-control" value="{{usuario.nombre_completo}}"name="nombre_completo"></td>
+                                <td><button class="btn btn-primary btn-sm" type="submit">Editar</button></td>
+                                <td><a href="{{url_for('delete', username=usuario.username)}}" class="btn btn-danger btn-sm">Eliminar</a></td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                  </table>            
+                
             </div>
+            
         </div>
 
 {% endblock content%}

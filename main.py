@@ -8,7 +8,7 @@ from usuario import Usuario
 
 db = connect.dbConnection()
 app = Flask(__name__)
-
+app.secret_key = '1234567890'
 @app.route('/', methods=['GET', 'POST'])
 def index():
     usuarios = db['antuapp']
@@ -31,7 +31,6 @@ def addUsuario():
     username = request.form['username']
     clave = request.form['clave']
     nombre_completo = request.form['nombre_completo']
-
     if username and clave and nombre_completo:
         usuario = Usuario(username, clave, nombre_completo)
         usuarios.usuario.insert_one(usuario.toDBCollection())

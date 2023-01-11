@@ -17,7 +17,7 @@ def dbConnection():
         db = client['antuapp']
     except ConnectionError:
         print("Error de conexión con la base de datos")
-    return client
+    return db
 
 
 
