@@ -4,7 +4,7 @@ from flask import request
 import forms 
 import connect as connect
 from usuario import Usuario
-
+import bcrypt
 
 db = connect.dbConnection()
 app = Flask(__name__)
@@ -30,13 +30,16 @@ def addUsuario():
     usuarios = db['antuapp']
     username = request.form['username']
     clave = request.form['clave']
+    clave = clave.encode()
+    salt = bcrypt.gensalt()
+    clave_encriptada = bcrypt.hashpw(clave, salt)
     nombre_completo = request.form['nombre_completo']
     if username and clave and nombre_completo:
-        usuario = Usuario(username, clave, nombre_completo)
+        usuario = Usuario(username, str(clave_encriptada), nombre_completo)
         usuarios.usuario.insert_one(usuario.toDBCollection())
         response = jsonify({
             'username': username,
-            'clave': clave,
+            'clave': str(clave_encriptada),
             'nombre_completo': nombre_completo
         })
         return redirect(url_for('index'))
@@ -49,10 +52,13 @@ def edit(user):
     usuarios = db['antuapp']
     username = request.form['username']
     clave = request.form['clave']
+    clave= clave.encode()
+    salt = bcrypt.gensalt()
+    clave_encriptada = bcrypt.hashpw(clave, salt)
     nombre_completo = request.form['nombre_completo']
 
     if username and clave and nombre_completo:
-        usuarios.usuario.update_one({'username': user}, {'$set': {'username': username, 'clave':clave, 'nombre_completo': nombre_completo}})
+        usuarios.usuario.update_one({'username': user}, {'$set': {'username': username, 'clave':clave_encriptada, 'nombre_completo': nombre_completo}})
         jsonify({'message': user + ' actualizado correctamente'})
         return redirect(url_for('index'))
     else:
